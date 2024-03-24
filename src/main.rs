@@ -6,6 +6,7 @@ mod day_1;
 
 // Entry point
 fn main() {
+    env::set_var("RUST_BACKTRACE", "1");
     // Get command line arguments
     let args: Vec<String> = env::args().collect();
 
@@ -16,7 +17,7 @@ fn main() {
     }
 
     // Parse arguments
-    let module_number: u32 = match args[1].parse() {
+    let day_number: u32 = match args[1].parse() {
         Ok(num) => num,
         Err(_) => {
             println!("Day number must be an integer");
@@ -42,8 +43,8 @@ fn main() {
         return;
     }
 
-    // Choose the appropriate module based on the module number
-    match module_number {
+    // Choose the appropriate module based on the day number
+    match day_number {
         1 => day_1::process_file(&content),
         _ => {
             println!("Invalid day");
